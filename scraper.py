@@ -29,7 +29,6 @@ for block in blocks:
 
 	link = block.a['href']
 	title = block.h2.contents[0]
-	print title
 	
 	# Some of our tags aren't consistent and bury the 'a' tag within the H2 tag
 	if hasattr(title,"href"):
@@ -43,7 +42,7 @@ for block in blocks:
 	# create the right strings for the new filename
 	csvYr = title.split(' ')[-1]
 	csvMth = title.split(' ')[-2][:3]
-	print csvMth
+	csvMth = convert_mth_strings(csvMth);
 	
 	filename = entity_id + "_" + csvYr + "_" + csvMth + ".csv"
 	
