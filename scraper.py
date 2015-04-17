@@ -11,7 +11,7 @@ url = "https://www.gov.uk/government/publications/transactions-over-25k-2013-201
 
 # Set up functions
 def convert_mth_strings ( mth_string ):
-	month_numbers = {'Jan': '01', 'Feb': '02', 'Mar':'03', 'Apr':'04', 'May':'05', 'Jun':'06', 'Jul':'07', 'Aug':'08', 'Sep':'09','Oct':'10','Nov':'11','Dec':'12' }
+	month_numbers = {'JAN': '01', 'FEB': '02', 'MAR':'03', 'APR':'04', 'MAY':'05', 'JUN':'06', 'JUL':'07', 'AUG':'08', 'SEP':'09','OCT':'10','NOV':'11','DEC':'12' }
 	#loop through the months in our dictionary
 	for k, v in month_numbers.items():
 		#then replace the word with the number
@@ -29,10 +29,11 @@ for block in blocks:
 
 	link = block.a['href']
 	title = block.h2.contents[0]
-
+	print title
+	
 	# Some of our tags aren't consistent and bury the 'a' tag within the H2 tag
 	if hasattr(title,"href"):
-		title = title.text.strip()
+		title = title.text.strip().upper()
 
 	# add the right prefix onto the url
 	csvUrl = link.replace("/preview","")
@@ -42,6 +43,7 @@ for block in blocks:
 	# create the right strings for the new filename
 	csvYr = title.split(' ')[-1]
 	csvMth = title.split(' ')[-2][:3]
+	print csvMth
 	
 	filename = entity_id + "_" + csvYr + "_" + csvMth + ".csv"
 	
