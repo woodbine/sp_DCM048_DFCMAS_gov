@@ -28,7 +28,7 @@ blocks = soup.findAll('div', {'class':'attachment-details'})
 for block in blocks:
 
 	link = block.a['href']
-	title = block.h2.contents[0].upper()
+	title = block.h2.contents[0]
 	
 	# Some of our tags aren't consistent and bury the 'a' tag within the H2 tag
 	if hasattr(title,"href"):
