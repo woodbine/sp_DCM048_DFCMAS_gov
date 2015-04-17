@@ -28,11 +28,11 @@ blocks = soup.findAll('div', {'class':'attachment-details'})
 for block in blocks:
 
 	link = block.a['href']
-	title = block.h2.contents[0]
+	title = block.h2.contents[0].upper()
 	
 	# Some of our tags aren't consistent and bury the 'a' tag within the H2 tag
 	if hasattr(title,"href"):
-		title = title.text.strip().upper()
+		title = title.text.strip()
 
 	# add the right prefix onto the url
 	csvUrl = link.replace("/preview","")
