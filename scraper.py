@@ -84,7 +84,7 @@ def convert_mth_strings ( mth_string ):
 #### VARIABLES 1.0
 
 entity_id = "DCM048_DFCMAS_gov"
-url = "https://www.gov.uk/government/publications/transactions-over-25k-2013-2014"
+url = "https://www.gov.uk/government/publications/dcms-transactions-over-25000-201617"
 errors = 0
 data = []
 
